@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-    <title>little ajax app</title>
+    <title>Little ajax App</title>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <!-- build:css styles/vendor.css -->
@@ -23,27 +23,25 @@
   </head>
   <body>
 
-    <div class="hero-unit">
-      <h1>'Allo, 'Allo!</h1>
-      <p>You now have</p>
-      <ul>
-        <li>HTML5 Boilerplate</li>
-        <li>Normalize CSS</li>
+    <script type="text/template" id=""></script>
 
-        <li>Sass</li>
+    <div class="container">
 
 
-        <li>Modernizr</li>
 
 
-        <li>Bourbon & Neat</li>
+        <form id="article_form">
+            <label>Article Title: <input type="text" class="title" name="title"></label>
+            <label>Article Content: <textarea cols="50" rows="5" class="content" name="article"></textarea></label>
+            <input type="submit" class="submit">
+        </form>        
 
 
-        <li>UnderscoreJS</li>
 
-      </ul>
-      <p>Don't forget to update your readme file!!</p>
-    </div>
+
+
+    </div><!-- .container -->
+    
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
