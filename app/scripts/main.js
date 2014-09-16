@@ -1,14 +1,15 @@
 var $articles = $('#article_list');
 var $title = $('#title');
 var $article = $('#article');
+var url = 'http://tiny-pizza-server.herokuapp.com/collections/funny_reads';
 
 function addArticle(article) {
-  $articles.append('<li><a href="#">'+ article.title +'</a> '+ article.article + '</li>');
+  $articles.append('<li><a href="#">'+ article.title +'</a> '+ article.article + '<button data-id="'+ article._id + '">X</button></li>');
 }
 
 $.ajax({
   type: 'GET',
-  url: 'http://tiny-pizza-server.herokuapp.com/collections/funny_reads',
+  url: url,
   success: function(data) {
     $.each(data, function(i, item) {
      addArticle(item);
@@ -30,7 +31,7 @@ $('#add_article').on('click', function() {
 
   $.ajax({
     type: 'POST', 
-    url: 'http://tiny-pizza-server.herokuapp.com/collections/funny_reads',
+    url: url,
     data: content,
     success: function(newArticle) {
      addArticle(newArticle);
