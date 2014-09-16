@@ -4,7 +4,7 @@ var $article = $('#article');
 var url = 'http://tiny-pizza-server.herokuapp.com/collections/funny_reads';
 
 function addArticle(article) {
-  $articles.append('<li><a href="#">'+ article.title +'</a> '+ article.article + '<button data-id="'+ article._id + '">X</button></li>');
+  $articles.append('<li><a href="#">'+ article.title +'</a> '+ article.article + '<br><button id="remove" data-id="'+ article._id + '">X</button></li>');
 }
 
 $.ajax({
@@ -42,6 +42,22 @@ $('#add_article').on('click', function() {
       alert('Error saving article, please contact Super Admin.');
     }
   });
+});
+
+
+
+$articles.delegate('#remove', 'click', function() {
+
+  var $li = $(this).closest('li');
+
+  $.ajax({
+    type: 'DELETE', 
+    url: url + '/' + $(this).attr('data-id'),
+    success: function(){
+      $li.remove();
+    }
+  });
+
 });
 
 
